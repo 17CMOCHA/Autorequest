@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'pytest tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results'
+                bat 'pytest tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results'
             }
         }
     }
