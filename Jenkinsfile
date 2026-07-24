@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat 'bat 'pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt''
             }
         }
         stage('Run Tests') {
