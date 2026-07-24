@@ -10,7 +10,7 @@ from V1.global_value import g_val
 
 # 构建可靠路径
 base_dir = os.path.dirname(os.path.abspath(__file__))
-excel_path = os.path.normpath(os.path.join(base_dir, "..", "data.xlsx"))
+excel_path = os.path.normpath(os.path.join(base_dir, "../..", "data.xlsx"))
 data_list = pd.read_excel(excel_path).to_dict(orient='records')
 print(data_list)
 @pytest.mark.parametrize("case_info", data_list)
