@@ -27,7 +27,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat 'if not exist reports mkdir reports'
-                bat 'venv\\Scripts\\pytest tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results'
+                bat 'venv\\Scripts\\pytest V1/tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results'
             }
         }
     }
