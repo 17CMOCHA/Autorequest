@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         // 若有凭据再启用
-        // API_KEY = credentials('NONE')
+        API_KEY = credentials('NONE')
     }
     stages {
         stage('Checkout') {
