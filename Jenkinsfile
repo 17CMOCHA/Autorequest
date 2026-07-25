@@ -14,16 +14,11 @@ pipeline {
         }
         stage('Test Basic') {
             steps {
-                bat 'echo hello'
-                bat 'whoami'
-                bat 'where python'
-                bat 'dir'
+                powershell 'Write-Host "hello from powershell"'
+                powershell 'whoami'
+                powershell 'Get-Command python -ErrorAction SilentlyContinue'
+                powershell 'Get-ChildItem'
             }
-        }
-    }
-    post {
-        always {
-            echo 'done'
         }
     }
 }
