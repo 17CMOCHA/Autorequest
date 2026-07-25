@@ -15,17 +15,10 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 timeout(time: 15, unit: 'MINUTES') {
-                    bat 'echo ========== 基础网络 =========='
-                    bat 'ping -n 1 baidu.com'
-                    bat 'ping -n 1 8.8.8.8'
-                    bat 'echo ========== 外网连通 =========='
-                    bat 'curl --connect-timeout 5 -I https://mirrors.aliyun.com/pypi/simple/'
-                    bat 'echo ========== Python版本 =========='
-                    bat 'python --version'
                     bat 'echo ========== 创建venv =========='
                     bat 'python -m venv venv'
                     bat 'echo ========== pip install =========='
-                    bat 'venv\\Scripts\\pip install -v --trusted-host mirrors.aliyun.com -i https://mirrors.aliyun.com/pypi/simple -r requirements.txt'
+                    bat 'venv\\Scripts\\pip install --proxy http://127.0.0.1:7897 -v -r requirements.txt'
                 }
             }
         }
