@@ -15,9 +15,11 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 timeout(time: 15, unit: 'MINUTES') {
-                    bat 'echo ========== 网络诊断 =========='
-                    bat 'curl -I https://mirrors.aliyun.com/pypi/simple/'
-                    bat 'curl -I https://pypi.tuna.tsinghua.edu.cn/simple/'
+                    bat 'echo ========== 基础网络 =========='
+                    bat 'ping -n 1 baidu.com'
+                    bat 'ping -n 1 8.8.8.8'
+                    bat 'echo ========== 外网连通 =========='
+                    bat 'curl --connect-timeout 5 -I https://mirrors.aliyun.com/pypi/simple/'
                     bat 'echo ========== Python版本 =========='
                     bat 'python --version'
                     bat 'echo ========== 创建venv =========='
