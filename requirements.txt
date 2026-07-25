@@ -1,0 +1,8 @@
+﻿pytest
+requests
+pandas
+jsonpath_ng
+allure-pytest
+jsonpatch
+openpyxl
+
