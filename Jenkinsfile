@@ -17,7 +17,7 @@ pipeline {
                 timeout(time: 15, unit: 'MINUTES') {
                     bat '''
                         python -m venv venv
-                        venv\\Scripts\\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+                        venv\\Scripts\\pip install --trusted-host mirrors.aliyun.com -i https://mirrors.aliyun.com/pypi/simple -r requirements.txt
                     '''
                 }
             }
