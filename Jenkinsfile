@@ -31,18 +31,14 @@ pipeline {
                 '''
             }
         }
-        stage('Generate Allure Report') {
-            steps {
-                powershell '''
-                    & allure generate reports/allure-results -o reports/allure-report --clean
-                '''
-                archiveArtifacts artifacts: 'reports/allure-report/**', allowEmptyArchive: true
-            }
-        }
     }
     post {
         always {
             junit 'reports/junit.xml'
+            powershell '''
+                & allure generate reports/allure-results -o reports/allure-report --clean
+            '''
+            archiveArtifacts artifacts: 'reports/allure-report/**', allowEmptyArchive: true
         }
     }
 }
