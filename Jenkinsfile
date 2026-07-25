@@ -1,10 +1,9 @@
-pipeline {
+﻿pipeline {
     agent any
     options {
-        timeout(time: 30, unit: 'MINUTES')  // 总超时
+        timeout(time: 30, unit: 'MINUTES')
     }
     environment {
-        // 若有凭据再启用
         API_KEY = credentials('NONE')
     }
     stages {
@@ -18,8 +17,7 @@ pipeline {
                 timeout(time: 15, unit: 'MINUTES') {
                     bat '''
                         python -m venv venv
-                        venv\\Scripts\\python -m pip install --upgrade pip
-                        venv\\Scripts\\pip install --no-cache-dir --timeout=100 -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+                        venv\\Scripts\\pip install -r requirements.txt
                     '''
                 }
             }
