@@ -26,7 +26,8 @@ pipeline {
             steps {
                 powershell 'if (!(Test-Path reports)) { New-Item -ItemType Directory reports }'
                 powershell '''
-                    & venv\\Scripts\\pytest V1/tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results
+                    Set-Location V1
+                    & ..\\venv\\Scripts\\pytest tests/ --junitxml=../reports/junit.xml --alluredir=../reports/allure-results
                 '''
             }
         }
