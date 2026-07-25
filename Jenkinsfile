@@ -24,10 +24,10 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                powershell 'if (!(Test-Path reports)) { New-Item -ItemType Directory reports }'
+                powe-rshell 'if (!(Test-Path reports)) { New-Item -ItemType Directory reports }'
                 powershell '''
-                    Set-Location V1
-                    & ..\\venv\\Scripts\\pytest tests/ --junitxml=../reports/junit.xml --alluredir=../reports/allure-results
+                    $env:PYTHONPATH = $PWD.Path
+                    & venv\\Scripts\\pytest V1/tests/ --junitxml=reports/junit.xml --alluredir=reports/allure-results
                 '''
             }
         }
