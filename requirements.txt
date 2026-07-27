@@ -6,3 +6,5 @@ allure-pytest
 jsonpatch
 openpyxl
 
+
+webdriver-manager
